@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title> Culinária | Receitas </title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Abel&family=Architects+Daughter&display=swap" rel="stylesheet">
+	<link th:href="@{css/logado.css}" rel="stylesheet" />
+	<link rel="shortcut icon" th:href="@{imagens/receita.png}">
+</head>
+
+<body>
+	<div class="geral">
+		<header>
+			<h1 id="titulo"> Menu </h1>
+			<ul id="itens">
+				<li><a href="areaLogado"> Sua Área </a></li>
+				<li><a href="livroReceitas"> Livros de Receitas </a></li>
+				<li><a href="receitas"> <strong>Receitas</strong> </a></li>
+				<li><a href="preparos"> Preparos </a></li>
+				<li><a href="ingredientes"> Ingredientes </a></li>
+				<li><a href="/"> Logoff </a></li>
+			</ul>
+		</header>
+		
+		<div th:text="${sucessoCadastro}" th:if="${sucessoCadastro}" class="sucesso"></div>
+		<div th:text="${sucessoEdicao}" th:if="${sucessoEdicao}" class="sucesso"></div>
+		<div th:text="${sucessoExclusao}" th:if="${sucessoExclusao}" class="sucesso"></div>
+
+		<a href="" class="botao-abrir"> < </a>
+
+		<div class="caixas">
+			<section class="caixa_receita">
+				<form action="cadastrarReceita" method="POST">
+					<div>
+						<h1> Cadastrar Receitas </h1>
+						<label for="nome"> Nome: </label>
+						<input type="text" id="nome" name="nome" class="inputReceita nome_cadastro_receita" placeholder="Informe o nome da receita">
+		
+						<label for=""> Descrição: </label>
+						<textarea id="descricao" name="descricao" class="descricao descricao_cadastro_receita" placeholder="Informe a descrição da receita"></textarea>
+						<div>
+							<button type="submit" class="botao_cadastro_receita"> Cadastrar </button>
+						</div>
+					</div>
+				</form>
+			</section>
+
+			<section class="caixa_receita">
+				<form action="editarReceita" method="POST">
+					<div>
+						<h1> Editar Receita </h1>
+						<label for="idReceita"> ID: </label>
+						<input type="number" id="idReceita" name="id" class="inputReceita id_editar_receita" placeholder="Informe o ID da receita">
+	
+						<label for="nomeEditar"> Nome: </label>
+						<input type="text" id="nomeEditar" name="nome" class="inputReceita nome_editar_receita" placeholder="Informe o nome da receita">
+		
+						<label for="descricaoEditar"> Descrição: </label>
+						<textarea id="descricaoEditar" name="descricao" class="descricaoEditar descricao_editar_receita" placeholder="Informe a descrição da receita"></textarea>
+						<div>
+							<button type="submit" class="botao_editar_receita"> Atualizar </button>
+						</div>
+					</div>
+				</form>
+			</section>
+
+			<section class="caixa_receita">
+				<form action="excluirReceita" method="POST">
+					<div>
+						<h1> Excluír Receita </h1>
+						<label for="idReceitaExcluir"> ID: </label>
+						<input type="number" id="idReceitaExcluir" name="id" class="inputReceita id_excluir_receita" placeholder="Informe o ID da receita">
+						<div>
+							<button type="submit" class="botao_excluir_receita"> Excluír </button>
+						</div>
+					</div>
+				</form>
+			</section>
+		</div>
+
+		<div class="lista-receitas" th:each="receita : ${r}">
+			<table>
+				<tr class="titulo_tabela">
+					<!--<td> ID </td>-->
+					<td> Nome </td>
+					<td> Descrição </td>
+				</tr>
+				<tr class="conteudo_tabela">
+					<!--<td th:text="${receita.id}"> 1 </td> -->
+					<td th:text="${receita.nome}"> Penne </td>
+					<td th:text="${receita.descricao}"> São tubos de massa que pareçam uma pena de escrever </td>
+				</tr>
+			</table>
+		</div>
+	</div>
+
+	<script type="text/javascript" th:src="@{js/script.js}"></script>
+</body>
+</html>

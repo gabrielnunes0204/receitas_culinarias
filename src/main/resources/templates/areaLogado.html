@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title> Culinária | Home </title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Abel&family=Architects+Daughter&display=swap" rel="stylesheet">	
+	<link th:href="@{css/logado.css}" rel="stylesheet" />
+	<link rel="shortcut icon" th:href="@{imagens/receita.png}">
+</head>
+
+<body>
+	<div class="geral">
+		<header>
+			<h1 id="titulo"> Menu </h1>
+			<ul id="itens">
+				<li><a href="livroReceitas"> Livros de Receitas </a></li>
+				<li><a href="receitas"> Receitas </a></li>
+				<li><a href="preparos"> Preparos </a></li>
+				<li><a href="ingredientes"> Ingredientes </a></li>
+				<li><a href="/"> Logoff </a></li>
+			</ul>
+		</header>
+		<a href="" class="botao-abrir"> < </a>
+		
+		<h1 class="mensagem"> Seja bem vindo, <span th:text="${userLogado}"></span></h1>
+
+		<section class="sua_area">
+			<h1> Dashboard </h1>
+			<!--<div>
+				<p th:each="livros : ${livroReceita}">
+					<h2> Total livros: <span class="" th:text="${livros.length}"> 0 </span> </h2>
+				</p>
+	
+				<p th:each="receita : ${receitas}">
+					<h2> Total receitas: <span class="" th:text="${receita.nome}"> 0 </span> </h2>
+				</p>
+	
+				<p th:each=" preparo : ${receita.preparos}">
+					<h2> Total preparos: <span class="" th:text="${preparo.length}"> 0 </span> </h2>
+				</p>
+	
+				<p th:each=" ingrediente : ${preparo.ingredientes}">
+					<h2> Total ingredientes: <span class="" th:text="${ingrediente.length}"> 0 </span> </h2>
+				</p>
+			</div>-->
+		</section>
+	</div>
+
+	<script type="text/javascript" th:src="@{js/script.js}"></script>
+</body>
+</html>

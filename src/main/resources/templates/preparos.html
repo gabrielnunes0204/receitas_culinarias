@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title> Culinária | Preparo </title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Abel&family=Architects+Daughter&display=swap" rel="stylesheet">
+	<link th:href="@{css/logado.css}" rel="stylesheet" />
+	<link rel="shortcut icon" th:href="@{imagens/receita.png}">
+</head>
+
+<body>
+	<div class="geral">
+		<header>
+			<h1 id="titulo"> Menu </h1>
+			<ul id="itens">
+				<li><a href="areaLogado"> Sua Área </a></li>
+				<li><a href="livroReceitas"> Livros de Receitas </a></li>
+				<li><a href="receitas"> Receitas </a></li>
+				<li><a href="preparo"> <strong>Preparos</strong> </a></li>
+				<li><a href="ingredientes"> Ingredientes </a></li>
+				<li><a href="/"> Logoff </a></li>
+			</ul>
+		</header>
+		
+		<div th:text="${sucessoCadastro}" th:if="${sucessoCadastro}" class="sucesso"></div>
+		<div th:text="${sucessoEdicao}" th:if="${sucessoEdicao}" class="sucesso"></div>
+		<div th:text="${sucessoExclusao}" th:if="${sucessoExclusao}" class="sucesso"></div>
+
+		<a href="" class="botao-abrir"> < </a>
+
+		<div class="caixas">
+			<section class="caixa_preparo">
+				<form action="cadastrarPreparo" method="POST">
+					<div>
+						<h1> Cadastro de Preparo </h1>
+						<label for="nome"> Nome: </label>
+						<input type="text" id="nome" name="nome" class="inputPreparo nome_cadastro_preparo" placeholder="Informe o nome do preparo">
+		
+						<label for="tempo"> Tempo: </label>
+						<input type="text" id="tempoPreparo" name="tempoPreparo" class="inputPreparo tempo_cadastro_preparo" placeholder="Informe o tempo de preparo">
+		
+						<label for="rendimento"> Rendimento: </label>
+						<textarea id="rendimento" name="rendimento" class="inputPreparo rendimento_cadastro_preparo" placeholder="Informe o rendimento do preparo"></textarea>
+						<div>
+							<button type="submit" class="botao_cadastro_preparo"> Cadastrar </button>
+						</div>
+					</div>
+				</form>
+			</section>
+
+			<section class="caixa_preparo">
+				<form action="editarPreparo" method="POST">
+					<div>
+						<h1> Editar Preparo </h1>
+						<label for="idPreparoEditar"> ID: </label>
+						<input type="number" id="idPreparoEditar" name="id" class="inputPreparo id_editar_preparo" placeholder="Informe o ID do preparo">
+	
+						<label for="nomeEditar"> Nome: </label>
+						<input type="text" id="nomeEditar" name="nome" class="inputPreparo nome_editar_preparo" placeholder="Informe o nome do preparo">
+		
+						<label for="tempoEditar"> Tempo: </label>
+						<input type="text" id="tempoEditar" name="tempoPreparo" class="inputPreparo tempo_editar_preparo" placeholder="Informe o tempo de preparo">
+		
+						<label for="rendimentoPreparo"> Rendimento: </label>
+						<textarea id="rendimentoPreparo" name="rendimento" class="inputPreparo rendimento_editar_preparo" placeholder="Informe o rendimento do preparo"></textarea>
+						<div>
+							<button type="submit" class="botao_editar_preparo"> Editar </button>
+						</div>
+					</div>
+				</form>
+			</section>
+
+			<section class="caixa_preparo">
+				<form action="excluirPreparo" method="POST">
+					<div>
+						<h1> Excluír Preparo </h1>
+						<label for="idPreparoExcluir"> ID: </label>
+						<input type="number" id="idPreparoExcluir" name="id" class="inputReceita id_excluir_preparo" placeholder="Informe o ID do preparo">
+						<div>
+							<button type="submit" class="botao_excluir_preparo"> Excluír </button>
+						</div>
+					</div>
+				</form>
+			</section>
+		</div>
+
+		<!--<div class="lista-preparos" th:each="preparo : ${receita.preparos}">
+			<table>
+				<tr class="titulo_tabela">
+					<td> ID </td>
+					<td> Nome </td>
+					<td> Tempo </td>
+					<td> Rendimento </td>
+					<td> Ingredientes </td>
+				</tr>
+				<tr class="conteudo_tabela">
+					<td th:text="${preparo.id}"> 1 </td>
+					<td th:text="${preparo.nome"> Massa Curta </td>
+					<td th:text="${preparo.tempo}"> 01:00 hora </td>
+					<td th:text="${preparo.rendimento}"> 10 </td>
+					<td th:text="${preparo.ingredientes}"> 8 </td>
+				</tr>
+			</table>
+		</div>-->
+	</div>
+
+	<script type="text/javascript" th:src="@{js/script.js}"></script>
+</body>
+</html>

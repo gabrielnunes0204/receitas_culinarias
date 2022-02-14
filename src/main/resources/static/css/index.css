@@ -1,0 +1,147 @@
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Architects Daughter', cursive;
+}
+
+a {
+    text-decoration: none;
+}
+
+.geral {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+}
+
+/* MENU */
+
+header {
+    grid-column: 1 / 9;
+    background: linear-gradient(to right, #000000, #060517);
+    padding: 40px;
+}
+
+header ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+}
+
+header ul li {
+    margin: 0px 25px;
+}
+
+header li a {
+    font-family: 'Architects Daughter', cursive;
+    font-size: 1.25rem;
+    color: #fff;
+}
+
+/* LOGIN */
+
+.caixa_login {
+    grid-column: 1 / 9;
+    margin: 50px auto 0 auto;
+}
+
+.caixa_login label {
+    font-size: 1.25rem;
+    display: block;
+    margin-top: 25px;
+    margin-bottom: 10px;
+}
+
+.inputAcesso, .inputCadastro {
+    font-family: 'Architects Daughter', cursive;
+    font-size: 1rem;
+    display: block;
+    padding: 8px;
+    width: 300px;
+    outline: 0;
+}
+
+.caixa_login div {
+    margin: 30px auto 0 auto;
+}
+
+.botao_logar, .botao_cadastrar {
+    font-family: 'Architects Daughter', cursive;
+    font-size: 1.15rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    border: 2px solid #F56300;
+    background: transparent;
+    color: #F56300;
+    padding: 8px;
+    width: 300px;
+    display: block;
+    text-align: center;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+.botao_logar:hover, .botao_cadastrar:hover {
+    background: #ff6f0f;
+    color: #fff;
+}
+
+/* -------------------------------*/
+
+/* CADASTRO */
+
+.caixa_cadastro {
+    grid-column: 1 / 9;
+    margin: 50px auto 0 auto;
+}
+
+.caixa_cadastro label {
+    font-size: 1.25rem;
+    display: block;
+    margin-top: 25px;
+    margin-bottom: 10px;
+}
+
+.caixa_cadastro div {
+    margin: 30px auto 0 auto;
+}
+
+/* -------------------------------*/
+
+/* RODAPÉ */
+
+footer {
+    grid-column:  1 / 9;
+    background: linear-gradient(to right, #000000, #060517);
+    padding: 40px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+footer p {
+    font-size: 1.25rem;
+    color: #fff;
+    text-align: center;
+}
+
+.rodape_cadastro {
+    position: relative;
+    margin-top: 50px;
+}
+
+/* -------------------------------*/
+
+/* MENSAGEM DE ERRO */
+
+.erro {
+	grid-column: 1 / 9;
+	border: 1px solid #fff;
+	background: tomato;
+	color: #fff;
+	padding: 8px;
+	text-align: center;
+}
